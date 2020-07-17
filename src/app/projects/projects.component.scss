@@ -1,0 +1,36 @@
+.project-toolbar {
+    background: #d6236b;
+    position: fixed;
+    z-index: 50;
+}
+h1 {
+    margin: 0 16px 0 14px;
+}
+table {
+    width: 100%;
+    z-index: 1;
+}
+.table-container {
+    width: 100%;
+    padding-top: 64px;
+}
+.borderLine {
+    background-color:#a71751;
+    width: 2px;
+    height: 70%;
+    margin: 10px;
+}
+th.mat-sort-header-sorted {
+    color: black;
+}
+.spacer {
+    flex: 1;
+}
+.slide-toggle {
+    font-size: medium;
+}
+.filter {
+    font-size: medium;
+    width: 20%;
+    margin-right: 30px;
+}

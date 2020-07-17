@@ -1,0 +1,56 @@
+<mat-toolbar class="task-toolbar">
+    <mat-icon>list_alt</mat-icon>
+    <h1>Task &nbsp;: &nbsp;{{project_data.name}}</h1>
+    <div class="borderLine"></div>
+    <button mat-button class="add-project"
+        (click)="addTask()">
+        Add Task
+    </button>
+    <span class="spacer"></span>
+    <mat-form-field class="filter">
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" #input>
+    </mat-form-field>
+    <mat-slide-toggle class="slide-toggle"
+        color="warn"
+        [(ngModel)]="isShowCompleted"
+        (change)="showCompletedChanged()">
+        Show Completed
+    </mat-slide-toggle>
+</mat-toolbar>
+<div class="table-container">
+    <table mat-table [dataSource]="dataSource" matSort class="task-table">
+
+        <ng-container matColumnDef="no">
+            <th mat-header-cell *matHeaderCellDef> No. </th>
+            <td mat-cell *matCellDef="let element"> {{element.no}} </td>
+        </ng-container>
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-button (click)="onClicktaskName(element)">
+                    {{element.name}}
+                </button>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef> Status </th>
+            <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+        </ng-container>
+        <ng-container matColumnDef="operator">
+            <th mat-header-cell *matHeaderCellDef> Operator </th>
+            <td mat-cell *matCellDef="let element"> {{element.operator}} </td>
+        </ng-container>
+        <ng-container matColumnDef="start">
+            <th mat-header-cell *matHeaderCellDef> Start </th>
+            <td mat-cell *matCellDef="let element"> {{element.start.toLocaleString()}} </td>
+        </ng-container>
+        <ng-container matColumnDef="end">
+            <th mat-header-cell *matHeaderCellDef> End </th>
+            <td mat-cell *matCellDef="let element"> {{element.end.toLocaleString()}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>

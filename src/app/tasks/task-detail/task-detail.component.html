@@ -1,0 +1,55 @@
+<h1 mat-dialog-title>{{title}}</h1>
+<mat-dialog-content class="taskDetail">
+    <mat-form-field class='taskDetail__no'>
+        <mat-label>No</mat-label>
+        <input matInput disabled value={{taskData.no}}>
+    </mat-form-field>
+    <mat-form-field class='taskDetail__name'>
+        <mat-label>Name</mat-label>
+        <input matInput type="text"
+            [(ngModel)]="taskData.name"
+            autofocus>
+    </mat-form-field>
+    <br>
+    <mat-form-field class='taskDetail__status'>
+        <mat-label>Status</mat-label>
+        <mat-select [(ngModel)]="taskData.status">
+            <mat-option value="New">New</mat-option>
+            <mat-option value="Working">Working</mat-option>
+            <mat-option value="Completed">Completed</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field class='taskDetail__operator'>
+        <mat-label>Operator</mat-label>
+        <input matInput type="text"
+            [(ngModel)]="taskData.operator">
+    </mat-form-field>
+    <br>
+    <mat-form-field class="taskDetail__start">
+        <mat-label>Start</mat-label>
+        <input matInput [matDatepicker]="picker1"  [(ngModel)]="taskData.start">
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="taskDetail__end">
+        <mat-label>End</mat-label>
+        <input matInput [matDatepicker]="picker2"  [(ngModel)]="taskData.end">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+    <br>
+    <mat-form-field class='taskDetail__note'>
+        <mat-label>Note</mat-label>
+        <textarea input matInput type="text"
+            [(ngModel)]="taskData.note">
+        </textarea>
+    </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button *ngIf="data.new === false" (click)="onButtonClick(-1)"> Delete </button>
+    <span class="spacer"></span>
+    <button mat-button (click)="onButtonClick(0)"> Cancel </button>
+    <button mat-button (click)="onButtonClick(1)" cdkFocusInitial> OK </button>
+</mat-dialog-actions>

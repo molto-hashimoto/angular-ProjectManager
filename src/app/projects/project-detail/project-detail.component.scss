@@ -1,0 +1,30 @@
+h1 {
+    font-size: 120%;
+}
+.spacer {
+    flex: 1;
+}
+.projectDetail {
+    max-width: 600px;
+    margin: 24px auto;
+    position: relative;
+    text-align: center;
+    &__no {
+        width: 80%;
+    }
+    &__name {
+        width: 80%;
+    }
+    &__status {
+        width: 80%;
+    }
+    &__operator {
+        width: 80%;
+    }
+    &__partner {
+        width: 80%;
+    }
+    &__note {
+        width: 80%;
+    }
+}

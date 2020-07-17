@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Delete Reconfirmation</h1>
+<mat-dialog-content class="content">
+    <p> Are you sure you want to remove {{target_name}}. </p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="onButtonClick(0)"> Cancel </button>
+    <button mat-button (click)="onButtonClick(1)" cdkFocusInitial> OK </button>
+</mat-dialog-actions>

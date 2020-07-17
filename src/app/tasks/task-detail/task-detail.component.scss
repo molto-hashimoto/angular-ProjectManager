@@ -1,0 +1,33 @@
+h1 {
+    font-size: 120%;
+}
+.spacer {
+    flex: 1;
+}
+.taskDetail {
+    max-width: 600px;
+    margin: 24px auto;
+    position: relative;
+    text-align: center;
+    &__no {
+        width: 80%;
+    }
+    &__name {
+        width: 80%;
+    }
+    &__status {
+        width: 80%;
+    }
+    &__operator {
+        width: 80%;
+    }
+    &__start {
+        width: 80%;
+    }
+    &__end {
+        width: 80%;
+    }
+    &__note {
+        width: 80%;
+    }
+}

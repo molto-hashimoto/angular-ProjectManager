@@ -23,6 +23,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 
 import { RoomComponent } from './room/room.component';
 import { ProjectsComponent } from './projects/projects.component';
@@ -62,7 +63,8 @@ import { TaskDetailComponent } from './tasks/task-detail/task-detail.component';
     MatDatepickerModule,
     MatNativeDateModule
   ],
-  providers: [],
+  entryComponents: [ProjectDetailComponent, TaskDetailComponent],
+  providers: [{ provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'standard' } }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

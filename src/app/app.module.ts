@@ -63,7 +63,7 @@ import { TaskDetailComponent } from './tasks/task-detail/task-detail.component';
     MatDatepickerModule,
     MatNativeDateModule
   ],
-  entryComponents: [ProjectDetailComponent, TaskDetailComponent],
+  entryComponents: [ProjectDetailComponent, TaskDetailComponent, DeleteReconfirmDialogComponent],
   providers: [{ provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'standard' } }],
   bootstrap: [AppComponent]
 })

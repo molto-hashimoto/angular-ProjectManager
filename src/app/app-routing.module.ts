@@ -1,3 +1,6 @@
+import { ChartComponent } from './attendance/chart/chart.component';
+import { MonthlyComponent } from './attendance/monthly/monthly.component';
+import { AttendanceComponent } from './attendance/attendance.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { RoomComponent } from './room/room.component';
@@ -21,6 +24,18 @@ const routes: Routes = [
   {
     path: 'tasks/:no',
     component: TasksComponent
+  },
+  {
+    path: 'attendance',
+    component: AttendanceComponent
+  },
+  {
+    path: 'attendance/monthly',
+    component: MonthlyComponent
+  },
+  {
+    path: 'attendance/chart',
+    component: ChartComponent
   }
 ];
 

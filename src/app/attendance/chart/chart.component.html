@@ -1,0 +1,15 @@
+<mat-toolbar class="attendance-toolbar">
+    <mat-icon>event_note</mat-icon>
+    <h1>Attendance</h1>
+
+    <button mat-button>←</button>
+    <button mat-button>→</button>
+
+    <div class="borderLine"></div>
+    <button mat-button (click)="click_Daily()">
+        Daily
+    </button>
+    <button mat-button (click)="click_Monthly()">
+        Monthly
+    </button>
+</mat-toolbar>

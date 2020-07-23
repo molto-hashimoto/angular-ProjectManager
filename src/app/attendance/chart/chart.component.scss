@@ -1,4 +1,4 @@
-.project-toolbar {
+.attendance-toolbar {
     background: #d6236b;
     position: fixed;
     z-index: 50;
@@ -19,17 +19,6 @@ table {
     height: 70%;
     margin: 10px;
 }
-th.mat-sort-header-sorted {
-    color: black;
-}
 .spacer {
     flex: 1;
-}
-.slide-toggle {
-    font-size: medium;
-}
-.filter {
-    font-size: medium;
-    width: 20%;
-    margin-right: 30px;
 }

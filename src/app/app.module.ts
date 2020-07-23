@@ -11,6 +11,7 @@ import { environment } from '../environments/environment';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -24,6 +25,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 import { RoomComponent } from './room/room.component';
 import { ProjectsComponent } from './projects/projects.component';
@@ -31,6 +34,10 @@ import { ProjectDetailComponent } from './projects/project-detail/project-detail
 import { DeleteReconfirmDialogComponent } from './delete-reconfirm-dialog/delete-reconfirm-dialog.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { TaskDetailComponent } from './tasks/task-detail/task-detail.component';
+import { AttendanceComponent } from './attendance/attendance.component';
+import { DefaultComponent } from './attendance/default/default.component';
+import { MonthlyComponent } from './attendance/monthly/monthly.component';
+import { ChartComponent } from './attendance/chart/chart.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +47,11 @@ import { TaskDetailComponent } from './tasks/task-detail/task-detail.component';
     ProjectDetailComponent,
     DeleteReconfirmDialogComponent,
     TasksComponent,
-    TaskDetailComponent
+    TaskDetailComponent,
+    AttendanceComponent,
+    DefaultComponent,
+    MonthlyComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,
@@ -61,9 +72,12 @@ import { TaskDetailComponent } from './tasks/task-detail/task-detail.component';
     MatDialogModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatButtonToggleModule,
+    MatListModule,
+    MatGridListModule
   ],
-  entryComponents: [ProjectDetailComponent, TaskDetailComponent, DeleteReconfirmDialogComponent],
+  entryComponents: [ProjectDetailComponent, TaskDetailComponent, DeleteReconfirmDialogComponent, DefaultComponent],
   providers: [{ provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'standard' } }],
   bootstrap: [AppComponent]
 })

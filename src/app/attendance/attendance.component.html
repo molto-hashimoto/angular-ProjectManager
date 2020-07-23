@@ -1,0 +1,76 @@
+<mat-toolbar class="attendance-toolbar">
+    <mat-icon>event_note</mat-icon>
+    <h1>Attendance</h1>
+
+    <button mat-button (click)="shiftMonth(-1)">←</button>
+    <button mat-button (click)="shiftMonth(1)">→</button>
+
+    <div class="borderLine"></div>
+    <button mat-button (click)="save()">
+        Save
+    </button>
+    <button mat-button (click)="openDefaultDialog()">
+        Default
+    </button>
+    <button mat-button (click)="click_monthly()">
+        Monthly
+    </button>
+    <button mat-button (click)="click_chart()">
+        Chart
+    </button>
+    <span class="spacer"></span>
+    <mat-form-field class="total_work_days">
+        <mat-label>Working days</mat-label>
+        <input matInput class="total_work_days__text" type="text" readonly="true" [(ngModel)]="totalWorkingDays">
+    </mat-form-field>
+    <mat-form-field class="total_work_time">
+        <mat-label>Total Work Time</mat-label>
+        <input matInput class="total_work_time__text" type="text" readonly="true" [(ngModel)]="totalWorkTime">
+    </mat-form-field>
+</mat-toolbar>
+
+<div class="table-container">
+    <table mat-table [dataSource]="dataSource" matSort class="attendance-table">
+
+        <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef> Date </th>
+            <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+        </ng-container>
+        <ng-container matColumnDef="dayOfWeek">
+            <th mat-header-cell *matHeaderCellDef> DayOfWeek </th>
+            <td mat-cell *matCellDef="let element"> {{element.dayOfWeek}} </td>
+        </ng-container>
+        <ng-container matColumnDef="start">
+            <th mat-header-cell *matHeaderCellDef> Start Time </th>
+            <td mat-cell *matCellDef="let element">
+                <input type="time" class="input_time" step="900" [(ngModel)]="element.start" (change)="calcWorkTime(element)">
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="end">
+            <th mat-header-cell *matHeaderCellDef> End Time </th>
+            <td mat-cell *matCellDef="let element">
+                <input type="time" class="input_time" step="900" [(ngModel)]="element.end" (change)="calcWorkTime(element)"> 
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="rest">
+            <th mat-header-cell *matHeaderCellDef> Rest Time </th>
+            <td mat-cell *matCellDef="let element">
+                <input type="time" class="input_time" step="900" [(ngModel)]="element.rest" (change)="calcWorkTime(element)"> 
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="work">
+            <th mat-header-cell *matHeaderCellDef> Work Time </th>
+            <td mat-cell *matCellDef="let element"> {{element.work}} </td>
+        </ng-container>
+        <ng-container matColumnDef="note">
+            <th mat-header-cell *matHeaderCellDef> Note </th>
+            <td mat-cell *matCellDef="let element">
+                <input mat-input type="text" class="input_note" [(ngModel)]="element.note">
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+            [ngClass]="{'saturday_background': row.dayOfWeek === '土', 'sunday_background': row.dayOfWeek === '日'}"></tr>
+    </table>
+</div>

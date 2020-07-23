@@ -1,0 +1,19 @@
+h1 {
+    font-size: 120%;
+}
+.defaultTime {
+    max-width: 400px;
+    margin: 24px auto;
+    position: relative;
+    text-align: center;
+}
+.input_time {
+    background: transparent;
+    color: currentColor;
+    border: none;
+    outline: none;
+    font-family: Roboto;
+}
+mat-label {
+    font-size: medium;
+}

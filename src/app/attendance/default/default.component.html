@@ -1,0 +1,21 @@
+<h1 mat-dialog-title> Set Default Time </h1>
+<mat-dialog-content class="defaultTime">
+
+    <mat-form-field appearance="legacy">
+        <mat-label> Start Time </mat-label>
+        <input matInput type="time" class="input_time" step="900" [(ngModel)]="defaultData.start"> 
+    </mat-form-field>
+    <mat-form-field appearance="legacy">
+        <mat-label> End Time </mat-label>
+        <input matInput type="time" class="input_time" step="900" [(ngModel)]="defaultData.end">
+    </mat-form-field>
+    <mat-form-field appearance="legacy">
+        <mat-label> Rest Time </mat-label>
+        <input matInput type="time" class="input_time" step="900" [(ngModel)]="defaultData.rest">
+    </mat-form-field>
+    
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="onButtonClick(0)"> Cancel </button>
+    <button mat-button (click)="onButtonClick(1)" cdkFocusInitial> OK </button>
+</mat-dialog-actions>

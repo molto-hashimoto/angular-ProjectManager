@@ -17,12 +17,12 @@ export class AttendanceService {
   monthlyColumns: string[] = ['year', 'month', 'totalDays', 'totalTime'];
   monthlyData: Monthly[] = [
     {year: 2020, month: 1, totalDays: 18, totalTime: '160:00'},
-    {year: 2020, month: 2, totalDays: 20, totalTime: '170:00'},
+    {year: 2020, month: 2, totalDays: 20, totalTime: '170:15'},
     {year: 2020, month: 3, totalDays: 21, totalTime: '175:00'},
-    {year: 2020, month: 4, totalDays: 23, totalTime: '160:00'},
-    {year: 2020, month: 5, totalDays: 20, totalTime: '152:00'},
+    {year: 2020, month: 4, totalDays: 23, totalTime: '160:30'},
+    {year: 2020, month: 5, totalDays: 18, totalTime: '152:00'},
     {year: 2020, month: 6, totalDays: 21, totalTime: '180:00'},
-    {year: 2020, month: 7, totalDays: 20, totalTime: '162:00'},
+    {year: 2020, month: 7, totalDays: 20, totalTime: '162:45'},
     {year: 2020, month: 8, totalDays: 20, totalTime: '160:00'},
     {year: 2020, month: 9, totalDays: 20, totalTime: '170:00'},
     {year: 2020, month: 10, totalDays: 20, totalTime: '180:00'},
@@ -82,7 +82,7 @@ export class AttendanceService {
     }
     let hour = Math.floor(totalMinute / 60);
     let minute = (totalMinute - (hour * 60));
-    return `${('0' + hour).slice(-3)}:${('0' + minute).slice(-2)}`;
+    return `${hour}:${('0' + minute).slice(-2)}`;
   }
   calcWorkingDays() {
     let workingDays = 0;

@@ -27,6 +27,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatMenuModule } from '@angular/material/menu';
+
+import { ChartsModule } from 'ng2-charts';
 
 import { RoomComponent } from './room/room.component';
 import { ProjectsComponent } from './projects/projects.component';
@@ -75,7 +78,9 @@ import { ChartComponent } from './attendance/chart/chart.component';
     MatNativeDateModule,
     MatButtonToggleModule,
     MatListModule,
-    MatGridListModule
+    MatGridListModule,
+    MatMenuModule,
+    ChartsModule
   ],
   entryComponents: [ProjectDetailComponent, TaskDetailComponent, DeleteReconfirmDialogComponent, DefaultComponent],
   providers: [{ provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'standard' } }],

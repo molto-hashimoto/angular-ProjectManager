@@ -12,4 +12,21 @@
     <button mat-button (click)="click_Monthly()">
         Monthly
     </button>
+    <span class="spacer"></span>
+
+    <button mat-button [matMenuTriggerFor]="menu"> Display </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="changeDisplay('bar')"> Bar </button>
+      <button mat-menu-item (click)="changeDisplay('line')"> Line </button>
+    </mat-menu>
 </mat-toolbar>
+<div class="canvas_container">
+    <div style="display: block">
+        <canvas class="chart_canvas" baseChart
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [chartType]="barChartType">
+        </canvas>
+    </div>
+</div>

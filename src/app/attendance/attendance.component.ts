@@ -15,7 +15,7 @@ export class AttendanceComponent implements OnInit {
 
   dataSource = new MatTableDataSource(this.attendanceService.getAllData());
   displayedColumns = this.attendanceService.attendanceColumns;
-  totalWorkTime = '00:00';
+  totalWorkTime = '0:00';
   totalWorkingDays = 0;
 
   constructor(

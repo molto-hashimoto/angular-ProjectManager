@@ -27,11 +27,13 @@ export class AttendanceComponent implements OnInit {
   ngOnInit(): void {
   }
   save() { }
-
-  click_monthly() {
+  click_Daily() {
+    this.router.navigate(['/attendance']);
+  }
+  click_Monthly() {
     this.router.navigate(['/attendance/monthly']);
   }
-  click_chart() {
+  click_Chart() {
     this.router.navigate(['/attendance/chart']);
   }
 

@@ -8,8 +8,9 @@
     <div class="borderLine"></div>
     <button mat-button [matMenuTriggerFor]="DisplayMenu"> Display Type </button>
     <mat-menu #DisplayMenu="matMenu">
-      <button mat-menu-item (click)="click_monthly()"> Monthly </button>
-      <button mat-menu-item (click)="click_chart()"> Chart </button>
+      <button mat-menu-item (click)="click_Daily()"> Daily </button>
+      <button mat-menu-item (click)="click_Monthly()"> Monthly </button>
+      <button mat-menu-item (click)="click_Chart()"> Chart </button>
     </mat-menu>
     <button mat-button (click)="openDefaultDialog()">
         Set Default

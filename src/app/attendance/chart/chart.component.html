@@ -11,6 +11,7 @@
     <mat-menu #DisplayMenu="matMenu">
       <button mat-menu-item (click)="click_Daily()"> Daily </button>
       <button mat-menu-item (click)="click_Monthly()"> Monthly </button>
+      <button mat-menu-item (click)="click_Chart()"> Chart </button>
     </mat-menu>
     <button mat-button [matMenuTriggerFor]="ChartMenu"> Chart Type </button>
     <mat-menu #ChartMenu="matMenu">

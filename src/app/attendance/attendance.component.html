@@ -6,27 +6,26 @@
     <button mat-button (click)="shiftMonth(1)">→</button>
 
     <div class="borderLine"></div>
+    <button mat-button [matMenuTriggerFor]="DisplayMenu"> Display Type </button>
+    <mat-menu #DisplayMenu="matMenu">
+      <button mat-menu-item (click)="click_monthly()"> Monthly </button>
+      <button mat-menu-item (click)="click_chart()"> Chart </button>
+    </mat-menu>
+    <button mat-button (click)="openDefaultDialog()">
+        Set Default
+    </button>
     <button mat-button (click)="save()">
         Save
     </button>
-    <button mat-button (click)="openDefaultDialog()">
-        Default
-    </button>
-    <div class="borderLine"></div>
-    <button mat-button (click)="click_monthly()">
-        Monthly
-    </button>
-    <button mat-button (click)="click_chart()">
-        Chart
-    </button>
+
     <span class="spacer"></span>
     <mat-form-field class="total_work_days">
-        <mat-label>Working days</mat-label>
-        <input matInput class="total_work_days__text" type="text" readonly="true" [(ngModel)]="totalWorkingDays">
+        <mat-label>Total days</mat-label>
+        <input matInput class="total_work_days__text" type="text" readonly="true" [(ngModel)]="totalDays">
     </mat-form-field>
     <mat-form-field class="total_work_time">
-        <mat-label>Total Work Time</mat-label>
-        <input matInput class="total_work_time__text" type="text" readonly="true" [(ngModel)]="totalWorkTime">
+        <mat-label>Total Time</mat-label>
+        <input matInput class="total_work_time__text" type="text" readonly="true" [(ngModel)]="totalTime">
     </mat-form-field>
 </mat-toolbar>
 

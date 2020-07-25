@@ -51,13 +51,21 @@ export class ChartComponent implements OnInit {
   monthlyData: Monthly[];
   thisYear: number;
   chartData: number[];
+  totalTime = '0:00';
+  totalDays = 0;
   constructor(
     private attendanceService: AttendanceService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
+    this.update();
+  }
+  update() {
     this.setChartData();
+    const total = this.attendanceService.calcYearlyTotal();
+    this.totalTime = total.time;
+    this.totalDays = total.days;
   }
   setChartData() {
     this.chartData = [];
@@ -82,7 +90,7 @@ export class ChartComponent implements OnInit {
   }
   shift_year(shitf: number) {
     this.attendanceService.setMonthlyData(shitf);
-    this.setChartData();
+    this.update();
   }
   click_Daily() {
     this.router.navigate(['/attendance']);

@@ -52,7 +52,7 @@ export class AttendanceService {
     // DBから該当年月のデータを取得 無かった場合は以下で初期化
 
     for (let cnt = 0; cnt < dayNum; cnt++) {
-      let thisDay = new Date(thisYear, thisMonth, (cnt + 1));
+      const thisDay = new Date(thisYear, thisMonth, (cnt + 1));
       this.attendanceData.push(
         {date: (thisMonth + 1) + '/' + thisDay.getDate(),
          dayOfWeek: this.dayOfWeekStr[thisDay.getDay()],
@@ -69,28 +69,28 @@ export class AttendanceService {
   }
 
   calcWorkTime(element: Attendance) {
-    let startTime = element.start.split(':').map(Number);
-    let endTime = element.end.split(':').map(Number);
-    let restTime = element.rest.split(':').map(Number);
+    const startTime = element.start.split(':').map(Number);
+    const endTime = element.end.split(':').map(Number);
+    const restTime = element.rest.split(':').map(Number);
 
-    let workTime = ((endTime[0] * 60 + endTime[1]) - (startTime[0] * 60 + startTime[1]) - (restTime[0] * 60 + restTime[1]));
-    let workHour = Math.floor(workTime / 60);
-    let workMinute = (workTime - (workHour * 60));
+    const workTime = ((endTime[0] * 60 + endTime[1]) - (startTime[0] * 60 + startTime[1]) - (restTime[0] * 60 + restTime[1]));
+    const workHour = Math.floor(workTime / 60);
+    const workMinute = (workTime - (workHour * 60));
     element.work = `${('0' + workHour).slice(-2)}:${('0' + workMinute).slice(-2)}`;
   }
-  calcTotalWorkTime() {
+  calcTotalTime() {
     let totalMinute = 0;
-    for (let element of this.attendanceData) {
-      let workTimeHourMin = element.work.split(':').map(Number);
+    for (const element of this.attendanceData) {
+      const workTimeHourMin = element.work.split(':').map(Number);
       totalMinute += (workTimeHourMin[0] * 60 + workTimeHourMin[1]);
     }
-    let hour = Math.floor(totalMinute / 60);
-    let minute = (totalMinute - (hour * 60));
+    const hour = Math.floor(totalMinute / 60);
+    const minute = (totalMinute - (hour * 60));
     return `${hour}:${('0' + minute).slice(-2)}`;
   }
-  calcWorkingDays() {
+  calcTotalDays() {
     let workingDays = 0;
-    for (let element of this.attendanceData) {
+    for (const element of this.attendanceData) {
       if (element.work !== '00:00') {
         workingDays++;
       }
@@ -101,7 +101,7 @@ export class AttendanceService {
 
     this.calcWorkTime(data);
 
-    for (let element of this.attendanceData) {
+    for (const element of this.attendanceData) {
       if (element.dayOfWeek !== '土' && element.dayOfWeek !== '日') {
         element.start = data.start;
         element.end = data.end;
@@ -127,5 +127,19 @@ export class AttendanceService {
           totalTime: '00:00'
         });
     }
+  }
+  calcYearlyTotal() {
+    let total = {time: '00:00', days: 0};
+    let totalMinute = 0;
+
+    for (const element of this.monthlyData) {
+      const workTimeHourMin = element.totalTime.split(':').map(Number);
+      totalMinute += (workTimeHourMin[0] * 60 + workTimeHourMin[1]);
+      total.days += element.totalDays;
+    }
+    const hour = Math.floor(totalMinute / 60);
+    const minute = (totalMinute - (hour * 60));
+    total.time =  `${hour}:${('0' + minute).slice(-2)}`;
+    return total;
   }
 }

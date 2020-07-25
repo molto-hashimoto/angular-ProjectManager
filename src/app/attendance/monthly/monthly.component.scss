@@ -22,3 +22,20 @@ table {
 .spacer {
     flex: 1;
 }
+.total_work_time {
+    width: 120px;
+    font-size: medium;
+    &__text {
+        font-size: large;
+        text-align: right;
+    }
+}
+.total_work_days {
+    width: 120px;
+    font-size: medium;
+    margin-right: 24px;
+    &__text {
+        font-size: large;
+        text-align: right;
+    }
+}

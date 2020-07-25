@@ -15,8 +15,8 @@ export class AttendanceComponent implements OnInit {
 
   dataSource = new MatTableDataSource(this.attendanceService.getAllData());
   displayedColumns = this.attendanceService.attendanceColumns;
-  totalWorkTime = '0:00';
-  totalWorkingDays = 0;
+  totalTime = '0:00';
+  totalDays = 0;
 
   constructor(
     private attendanceService: AttendanceService,
@@ -36,8 +36,8 @@ export class AttendanceComponent implements OnInit {
   }
 
   update() {
-    this.totalWorkTime = this.attendanceService.calcTotalWorkTime();
-    this.totalWorkingDays = this.attendanceService.calcWorkingDays();
+    this.totalTime = this.attendanceService.calcTotalTime();
+    this.totalDays = this.attendanceService.calcTotalDays();
   }
 
   shiftMonth(shift: number) {

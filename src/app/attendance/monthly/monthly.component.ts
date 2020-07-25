@@ -12,6 +12,8 @@ export class MonthlyComponent implements OnInit {
 
   dataSource = new MatTableDataSource(this.attendanceService.getMothlyData());
   displayedColumns = this.attendanceService.monthlyColumns;
+  totalTime = '0:00';
+  totalDays = 0;
 
   constructor(
     private attendanceService: AttendanceService,
@@ -19,10 +21,17 @@ export class MonthlyComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.update();
+  }
+  update() {
+    this.dataSource.data = this.attendanceService.getMothlyData();
+    const total = this.attendanceService.calcYearlyTotal();
+    this.totalTime = total.time;
+    this.totalDays = total.days;
   }
   shift_year(shitf: number) {
     this.attendanceService.setMonthlyData(shitf);
-    this.dataSource.data = this.attendanceService.getMothlyData();
+    this.update();
   }
   click_Daily() {
     this.router.navigate(['/attendance']);

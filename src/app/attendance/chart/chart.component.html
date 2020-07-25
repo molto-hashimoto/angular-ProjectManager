@@ -6,19 +6,27 @@
     <button mat-button (click)="shift_year(1)">→</button>
 
     <div class="borderLine"></div>
-    <button mat-button (click)="click_Daily()">
-        Daily
-    </button>
-    <button mat-button (click)="click_Monthly()">
-        Monthly
-    </button>
-    <span class="spacer"></span>
 
-    <button mat-button [matMenuTriggerFor]="menu"> Display </button>
-    <mat-menu #menu="matMenu">
+    <button mat-button [matMenuTriggerFor]="DisplayMenu"> Display Type </button>
+    <mat-menu #DisplayMenu="matMenu">
+      <button mat-menu-item (click)="click_Daily()"> Daily </button>
+      <button mat-menu-item (click)="click_Monthly()"> Monthly </button>
+    </mat-menu>
+    <button mat-button [matMenuTriggerFor]="ChartMenu"> Chart Type </button>
+    <mat-menu #ChartMenu="matMenu">
       <button mat-menu-item (click)="changeDisplay('bar')"> Bar </button>
       <button mat-menu-item (click)="changeDisplay('line')"> Line </button>
     </mat-menu>
+    <span class="spacer"></span>
+    <mat-form-field class="total_work_days">
+        <mat-label>Total days</mat-label>
+        <input matInput class="total_work_days__text" type="text" readonly="true" [(ngModel)]="totalDays">
+    </mat-form-field>
+    <mat-form-field class="total_work_time">
+        <mat-label>Total Time</mat-label>
+        <input matInput class="total_work_time__text" type="text" readonly="true" [(ngModel)]="totalTime">
+    </mat-form-field>
+    
 </mat-toolbar>
 <div class="canvas_container">
     <div style="display: block">

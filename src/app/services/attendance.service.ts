@@ -6,9 +6,8 @@ import { Injectable } from '@angular/core';
 })
 export class AttendanceService {
 
+  thisYear: number;
   today: Date;
-  nowYear: number;
-  nowMonth: number;
 
   dayOfWeekStr = [ '日', '月', '火', '水', '木', '金', '土'];
   attendanceColumns: string[] = ['date', 'dayOfWeek', 'start', 'end', 'rest', 'work', 'note'];
@@ -33,6 +32,9 @@ export class AttendanceService {
   constructor() {
     this.today = new Date();
     this.setAttendanceData(0);
+
+    this.thisYear = this.today.getFullYear();
+//    this.setMonthlyData(0);
   }
 
   getAllData(): Attendance[] {
@@ -46,6 +48,8 @@ export class AttendanceService {
     const thisYear = this.today.getFullYear();
     const thisMonth = this.today.getMonth();
     const dayNum = this.getDayNum(thisYear, thisMonth + 1);
+
+    // DBから該当年月のデータを取得 無かった場合は以下で初期化
 
     for (let cnt = 0; cnt < dayNum; cnt++) {
       let thisDay = new Date(thisYear, thisMonth, (cnt + 1));
@@ -109,7 +113,19 @@ export class AttendanceService {
   getMothlyData(): Monthly[] {
     return this.monthlyData;
   }
-  setMonthlyData() {
+  setMonthlyData(shiftYear: number) {
+    this.thisYear += shiftYear;
+    this.monthlyData = [];
 
+    // DBから該当年のデータを取得
+
+    for (let cnt = 1; cnt <= 12; cnt++) {
+      this.monthlyData.push(
+        { year: this.thisYear,
+          month: cnt,
+          totalDays: 0,
+          totalTime: '00:00'
+        });
+    }
   }
 }

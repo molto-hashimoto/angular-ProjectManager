@@ -20,6 +20,10 @@ export class MonthlyComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  shift_year(shitf: number) {
+    this.attendanceService.setMonthlyData(shitf);
+    this.dataSource.data = this.attendanceService.getMothlyData();
+  }
   click_Daily() {
     this.router.navigate(['/attendance']);
   }

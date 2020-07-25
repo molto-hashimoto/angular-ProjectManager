@@ -2,8 +2,8 @@
     <mat-icon>event_note</mat-icon>
     <h1>Attendance</h1>
 
-    <button mat-button>←</button>
-    <button mat-button>→</button>
+    <button mat-button (click)="shift_year(-1)">←</button>
+    <button mat-button (click)="shift_year(1)">→</button>
 
     <div class="borderLine"></div>
     <button mat-button (click)="click_Daily()">

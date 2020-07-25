@@ -50,16 +50,25 @@ export class ChartComponent implements OnInit {
 
   monthlyData: Monthly[];
   thisYear: number;
-  chartData: number[] = [];
+  chartData: number[];
   constructor(
     private attendanceService: AttendanceService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
+    this.setChartData();
+  }
+  setChartData() {
+    this.chartData = [];
     this.monthlyData = this.attendanceService.getMothlyData();
     this.thisYear = this.monthlyData[0].year;
-    this.barChartOptions.title.text = ' Total Work Time - ' + String(this.thisYear);
+    this.barChartOptions.title.text = ' Total Work Time & Working Days';
+
+    this.barChartLabels = [];
+    for (let cnt = 1; cnt <= 12; cnt++) {
+      this.barChartLabels.push(String(this.thisYear) + ' / ' + String(cnt));
+    }
 
     let strChartData = this.monthlyData.map(data => data.totalTime);
     for (let element of strChartData) {
@@ -70,6 +79,10 @@ export class ChartComponent implements OnInit {
 
     let totalDays = this.monthlyData.map(data => data.totalDays);
     this.barChartData[1] = {data: totalDays, label: 'Working Days'};
+  }
+  shift_year(shitf: number) {
+    this.attendanceService.setMonthlyData(shitf);
+    this.setChartData();
   }
   click_Daily() {
     this.router.navigate(['/attendance']);

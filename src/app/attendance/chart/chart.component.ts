@@ -16,7 +16,7 @@ export class ChartComponent implements OnInit {
     responsive: true,
     title: {
       display: true,
-      text: 'Your chart title',
+      text: ' Total Time & Total Days ',
       fontColor: 'white',
     },
     legend: {
@@ -71,7 +71,6 @@ export class ChartComponent implements OnInit {
     this.chartData = [];
     this.monthlyData = this.attendanceService.getMothlyData();
     this.thisYear = this.monthlyData[0].year;
-    this.barChartOptions.title.text = ' Total Work Time & Working Days';
 
     this.barChartLabels = [];
     for (let cnt = 1; cnt <= 12; cnt++) {
@@ -83,10 +82,10 @@ export class ChartComponent implements OnInit {
       let workTimeHourMin = element.split(':').map(Number);
       this.chartData.push(workTimeHourMin[0] + (workTimeHourMin[1] / 60 * 100 / 100));
     }
-    this.barChartData[0] = {data: this.chartData, label: 'Total Work Time' };
+    this.barChartData[0] = {data: this.chartData, label: 'Total Time' };
 
     let totalDays = this.monthlyData.map(data => data.totalDays);
-    this.barChartData[1] = {data: totalDays, label: 'Working Days'};
+    this.barChartData[1] = {data: totalDays, label: 'Total Days'};
   }
   shift_year(shitf: number) {
     this.attendanceService.setMonthlyData(shitf);

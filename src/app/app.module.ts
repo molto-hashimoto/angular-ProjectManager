@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HammerModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
@@ -28,10 +28,11 @@ import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatDividerModule } from '@angular/material/divider';
 
 import { ChartsModule } from 'ng2-charts';
+import { IgxCalendarModule } from 'igniteui-angular';
 
-import { RoomComponent } from './room/room.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ProjectDetailComponent } from './projects/project-detail/project-detail.component';
 import { DeleteReconfirmDialogComponent } from './delete-reconfirm-dialog/delete-reconfirm-dialog.component';
@@ -41,11 +42,11 @@ import { AttendanceComponent } from './attendance/attendance.component';
 import { DefaultComponent } from './attendance/default/default.component';
 import { MonthlyComponent } from './attendance/monthly/monthly.component';
 import { ChartComponent } from './attendance/chart/chart.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RoomComponent,
     ProjectsComponent,
     ProjectDetailComponent,
     DeleteReconfirmDialogComponent,
@@ -54,7 +55,8 @@ import { ChartComponent } from './attendance/chart/chart.component';
     AttendanceComponent,
     DefaultComponent,
     MonthlyComponent,
-    ChartComponent
+    ChartComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +82,9 @@ import { ChartComponent } from './attendance/chart/chart.component';
     MatListModule,
     MatGridListModule,
     MatMenuModule,
-    ChartsModule
+    ChartsModule,
+    MatDividerModule,
+    IgxCalendarModule
   ],
   entryComponents: [ProjectDetailComponent, TaskDetailComponent, DeleteReconfirmDialogComponent, DefaultComponent],
   providers: [{ provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'standard' } }],

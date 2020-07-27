@@ -1,0 +1,88 @@
+.home-toolbar {
+    background: #d6236b;
+    position: fixed;
+    z-index: 50;
+}
+h1 {
+    margin: 0 16px 0 14px;
+}
+.borderLine {
+    background-color:#a71751;
+    width: 2px;
+    height: 70%;
+    margin: 10px;
+}
+.container {
+    padding-top: 86px;
+    padding-left: 24px;
+    max-width: 800px;
+}
+mat-card {
+    width: 100%;
+    height: 100%;
+    background: #494949;
+}
+mat-card-title {
+    font-size: medium;
+}
+.date_card {
+    margin-top: 20px;
+}
+.stamping_card {
+    margin-top: 20px;
+}
+.stamping_time_card {
+    margin-top: 20px;
+}
+.calendar_card {
+    margin-top: 20px;
+}
+.news_card {
+    margin-top: 20px;
+}
+.today {
+    margin-left: 30px;    
+}
+.time {
+    margin-left: 30px;
+    font-size: xx-large;
+}
+mat-icon {
+    font-size: xx-large;
+}
+.stamping_toggle {
+    margin-top: 15px;
+    margin-left: 30px;
+}
+.attendance {
+    margin-left: 30px;
+}
+.stamping_start {
+    width: 90px;
+    height: 85px;
+    background: #838282;
+}
+.stamping_end {
+    width: 90px;
+    height: 85px;
+    background: #616161;
+}
+
+@import '~igniteui-angular/lib/core/styles/themes/index';
+@include igx-core();
+$custom-palette: igx-palette(
+    $primary: #09f,
+    $secondary: #72da67,
+    $surface: #424141,
+    $error: #ff134a,
+    $success: #4eb862,
+    $warn: #fbb13c,
+    $info: #1377d5,
+    $grays: #fff
+);
+.calendar {
+    max-width: 410px;
+    margin: 0px 30px;
+    @include igx-theme($palette: $custom-palette, $schema: $dark-schema, $roundness: null, $elevation: null);
+    @include igx-typography($font-family: "Titillium Web", $type-scale: $default-type-scale);
+}

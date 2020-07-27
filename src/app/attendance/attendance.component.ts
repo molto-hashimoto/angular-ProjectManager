@@ -25,6 +25,7 @@ export class AttendanceComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.update();
   }
   save() { }
   click_Daily() {

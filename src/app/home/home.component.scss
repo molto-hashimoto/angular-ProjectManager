@@ -13,9 +13,11 @@ h1 {
     margin: 10px;
 }
 .container {
-    padding-top: 86px;
-    padding-left: 24px;
-    max-width: 800px;
+    padding-top: 64px;
+    margin: 24px auto;
+    margin-top: 0px;
+    max-width: 700px;
+    position: relative;
 }
 mat-card {
     width: 100%;
@@ -54,9 +56,6 @@ mat-icon {
     margin-top: 15px;
     margin-left: 30px;
 }
-.attendance {
-    margin-left: 30px;
-}
 .stamping_start {
     width: 90px;
     height: 85px;
@@ -66,6 +65,12 @@ mat-icon {
     width: 90px;
     height: 85px;
     background: #616161;
+}
+.attendance {
+    margin-left: 30px;
+    &__input {
+        text-align: right;
+    }
 }
 
 @import '~igniteui-angular/lib/core/styles/themes/index';
@@ -81,7 +86,7 @@ $custom-palette: igx-palette(
     $grays: #fff
 );
 .calendar {
-    max-width: 410px;
+    max-width: 300px;
     margin: 0px 30px;
     @include igx-theme($palette: $custom-palette, $schema: $dark-schema, $roundness: null, $elevation: null);
     @include igx-typography($font-family: "Titillium Web", $type-scale: $default-type-scale);

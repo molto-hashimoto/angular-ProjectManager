@@ -2,18 +2,21 @@
     <mat-icon>home</mat-icon>
     <h1>Home</h1>
     <div class="borderLine"></div>
+    <button mat-button (click)="save()">
+        Save
+    </button>
 </mat-toolbar>
 <div class="container">
-    <mat-grid-list cols="8" rowHeight="10px">
+    <mat-grid-list cols="7" rowHeight="10px">
         <mat-grid-tile [colspan]="3" [rowspan]="11">
             <mat-card class="date_card">
                 <mat-card-title> Current Time </mat-card-title>
-                <p class="today"> 2020 / 07 / 25 (土) </p>
-                <p class="time"> 18:08 </p>
+                <p class="today"> {{now$ | async | date:'yyyy / MM / dd'}} </p>
+                <p class="time"> {{now$ | async | date:'HH:mm:ss'}} </p>
             </mat-card>
         </mat-grid-tile>
 
-        <mat-grid-tile [colspan]="5" [rowspan]="40">
+        <mat-grid-tile [colspan]="4" [rowspan]="40">
             <mat-card class="calendar_card">
                 <mat-card-title> Calendar </mat-card-title>
                 <igx-calendar selection="multi" class="calendar"></igx-calendar>
@@ -24,11 +27,11 @@
             <mat-card class="stamping_card">
                 <mat-card-title> Stamping </mat-card-title>
                 <mat-button-toggle-group class="stamping_toggle">
-                    <mat-button-toggle class="stamping_start">
+                    <mat-button-toggle class="stamping_start" (click)="clickStampingStart()">
                         <mat-icon> apartment </mat-icon>
                         <p> Start </p>
                     </mat-button-toggle>
-                    <mat-button-toggle class="stamping_end">
+                    <mat-button-toggle class="stamping_end" (click)="clickStampingEnd()">
                         <mat-icon> house </mat-icon>
                         <p> End </p>
                     </mat-button-toggle>
@@ -42,23 +45,29 @@
                 <div class="attendance">
                     <mat-form-field>
                         <mat-label> Start Time </mat-label>
-                        <input matInput type="text" readonly="true" [(ngModel)]="startTime">
+                        <input matInput class="attendance__input" type="time" step="900" 
+                            [(ngModel)]="attendance[today].start"
+                            (change)="calcWorkTime(attendance[today])">
                     </mat-form-field>
                     <br>
                     <mat-form-field>
                         <mat-label> End Time </mat-label>
-                        <input matInput type="text" readonly="true" [(ngModel)]="endTime">
+                        <input matInput class="attendance__input" type="time" step="900" 
+                            [(ngModel)]="attendance[today].end"
+                            (change)="calcWorkTime(attendance[today])">
                     </mat-form-field>
                     <br>
                     <mat-form-field>
                         <mat-label> Rest Time </mat-label>
-                        <input matInput type="text" readonly="true" [(ngModel)]="restTime">
+                        <input matInput class="attendance__input" type="time" step="900" 
+                            [(ngModel)]="attendance[today].rest"
+                            (change)="calcWorkTime(attendance[today])">
                     </mat-form-field>
                 </div>
             </mat-card>
         </mat-grid-tile>
 
-        <mat-grid-tile [colspan]="5" [rowspan]="40">
+        <mat-grid-tile [colspan]="4" [rowspan]="40">
             <mat-card class="news_card">
                 <mat-card-title> News </mat-card-title>
 

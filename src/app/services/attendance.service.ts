@@ -34,6 +34,7 @@ export class AttendanceService {
     this.setAttendanceData(0);
 
     this.thisYear = this.today.getFullYear();
+// ダミーデータを表示するためコメントアウト
 //    this.setMonthlyData(0);
   }
 
@@ -73,7 +74,10 @@ export class AttendanceService {
     const endTime = element.end.split(':').map(Number);
     const restTime = element.rest.split(':').map(Number);
 
-    const workTime = ((endTime[0] * 60 + endTime[1]) - (startTime[0] * 60 + startTime[1]) - (restTime[0] * 60 + restTime[1]));
+    let workTime = ((endTime[0] * 60 + endTime[1]) - (startTime[0] * 60 + startTime[1]) - (restTime[0] * 60 + restTime[1]));
+    if (workTime < 0) {
+      workTime += (24 * 60);
+    }
     const workHour = Math.floor(workTime / 60);
     const workMinute = (workTime - (workHour * 60));
     element.work = `${('0' + workHour).slice(-2)}:${('0' + workMinute).slice(-2)}`;

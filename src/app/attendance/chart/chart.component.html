@@ -30,12 +30,14 @@
     
 </mat-toolbar>
 <div class="canvas_container">
-    <div style="display: block">
-        <canvas class="chart_canvas" baseChart
-            [datasets]="barChartData"
-            [labels]="barChartLabels"
-            [options]="barChartOptions"
-            [chartType]="barChartType">
-        </canvas>
-    </div>
+    <mat-card class="canvas-card">
+        <div style="display: block">
+            <canvas class="chart_canvas" baseChart
+                [datasets]="barChartData"
+                [labels]="barChartLabels"
+                [options]="barChartOptions"
+                [chartType]="barChartType">
+            </canvas>
+        </div>
+    </mat-card>
 </div>

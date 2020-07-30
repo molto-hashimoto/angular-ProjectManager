@@ -6,12 +6,16 @@ import { Injectable } from '@angular/core';
 })
 export class TaskService {
 
-  taskColumns: string[] = ['no', 'name', 'status', 'operator', 'start', 'end'];
+  taskColumns: string[] = ['no', 'name', 'status', 'operator', 'start', 'end', 'place'];
   taskData: Task[] = [
-    {no: 2, name: 'cooding', project_no: 1, status: 'New', operator: 'hashimoto', start: new Date(), end: new Date(), note: ''},
-    {no: 1, name: 'design', project_no: 1, status: 'Completed', operator: 'hashimoto', start: new Date(), end: new Date(), note: ''},
-    {no: 2, name: 'design', project_no: 3, status: 'Working', operator: 'hashimoto', start: new Date(), end: new Date(), note: ''},
-    {no: 1, name: 'design', project_no: 3, status: 'Working', operator: 'hashimoto', start: new Date(), end: new Date(), note: ''},
+    {no: 2, name: 'cooding', project_no: 1, status: 'New', operator: 'hashimoto',
+      start: new Date(), end: new Date(), place: 'home', note: ''},
+    {no: 1, name: 'design', project_no: 1, status: 'Completed', operator: 'hashimoto',
+      start: new Date(), end: new Date(), place: 'home', note: ''},
+    {no: 2, name: 'design', project_no: 3, status: 'Working', operator: 'hashimoto',
+      start: new Date(), end: new Date(), place: 'Osaka', note: ''},
+    {no: 1, name: 'design', project_no: 3, status: 'Working', operator: 'hashimoto',
+      start: new Date(), end: new Date(), place: 'Osaka', note: ''},
   ];
 
   constructor() { }
@@ -45,6 +49,7 @@ export class TaskService {
       operator: '',
       start: new Date(),
       end: new Date(),
+      place: '',
       note: ''
     };
   }

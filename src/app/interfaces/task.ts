@@ -6,5 +6,6 @@ export interface Task {
     operator: string;
     start: Date;
     end: Date;
+    place: string;
     note: string;
 }

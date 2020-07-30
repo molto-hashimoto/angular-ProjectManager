@@ -40,6 +40,12 @@
         <mat-datepicker #picker2></mat-datepicker>
     </mat-form-field>
     <br>
+    <mat-form-field class='taskDetail__place'>
+        <mat-label>Place</mat-label>
+        <input matInput type="text"
+            [(ngModel)]="taskData.place">
+    </mat-form-field>
+    <br>
     <mat-form-field class='taskDetail__note'>
         <mat-label>Note</mat-label>
         <textarea input matInput type="text"

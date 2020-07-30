@@ -1,3 +1,6 @@
+import { News } from './../interfaces/news';
+import { NewsService } from './../services/news.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Attendance } from './../interfaces/attendance';
 import { AttendanceService } from './../services/attendance.service';
 import { Component, OnInit } from '@angular/core';
@@ -12,14 +15,15 @@ export class HomeComponent implements OnInit {
 
   now$: Observable<Date>;
   intervalList = [];
-  startTime = '09:00';
-  endTime = '18:00';
-  restTime = '01:00';
   attendance: Attendance[];
   today: number;
+  newsData: News[];
+  displayedColumns = this.newsService.newsColumns;
 
   constructor(
-    private attendanceService: AttendanceService
+    private attendanceService: AttendanceService,
+    private newsService: NewsService,
+    private snackbar: MatSnackBar
   ) {
     this.today = (new Date()).getDate() - 1;
     this.attendance = this.attendanceService.getAllData();
@@ -31,9 +35,12 @@ export class HomeComponent implements OnInit {
         observer.next(new Date());
       }, 1000);
     });
+    this.newsData = this.newsService.getAll();
   }
   save() {
-
+    this.snackbar.open('保存しました', null, {
+      duration: 2000
+    });
   }
   calcWorkTime(element: Attendance) {
     this.attendanceService.calcWorkTime(element);

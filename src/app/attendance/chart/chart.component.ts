@@ -91,15 +91,6 @@ export class ChartComponent implements OnInit {
     this.attendanceService.setMonthlyData(shitf);
     this.update();
   }
-  click_Daily() {
-    this.router.navigate(['/attendance']);
-  }
-  click_Monthly() {
-    this.router.navigate(['/attendance/monthly']);
-  }
-  click_Chart() {
-    this.router.navigate(['/attendance/chart'])
-  }
   changeDisplay(display: ChartType) {
     this.barChartType = display;
   }

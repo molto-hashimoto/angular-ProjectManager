@@ -15,7 +15,7 @@ h1 {
 .container {
     padding-top: 64px;
     margin: 24px auto;
-    max-width: 700px;
+    max-width: 1000px;
     position: relative;
 }
 mat-card {
@@ -70,6 +70,10 @@ mat-icon {
     &__input {
         text-align: right;
     }
+}
+.news-table {
+    margin-left: 30px;
+    width: 520px;
 }
 
 @import '~igniteui-angular/lib/core/styles/themes/index';

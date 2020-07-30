@@ -2,21 +2,31 @@
     <mat-icon>event_note</mat-icon>
     <h1>Attendance</h1>
 
-    <button mat-button (click)="shiftMonth(-1)">←</button>
-    <button mat-button (click)="shiftMonth(1)">→</button>
+    <button mat-button (click)="shiftMonth(-1)">
+        <mat-icon> arrow_left </mat-icon>
+    </button>
+    <button mat-button (click)="shiftMonth(1)">
+        <mat-icon> arrow_right </mat-icon>
+    </button>
 
     <div class="borderLine"></div>
-    <button mat-button [matMenuTriggerFor]="DisplayMenu"> Display Type </button>
-    <mat-menu #DisplayMenu="matMenu">
-      <button mat-menu-item (click)="click_Daily()"> Daily </button>
-      <button mat-menu-item (click)="click_Monthly()"> Monthly </button>
-      <button mat-menu-item (click)="click_Chart()"> Chart </button>
-    </mat-menu>
-    <button mat-button (click)="openDefaultDialog()">
-        Set Default
+    <button mat-button [matMenuTriggerFor]="menu">
+        <mat-icon>menu</mat-icon>
     </button>
+    <mat-menu #menu>
+        <button mat-menu-item [matMenuTriggerFor]="DisplayMenu">Display Type</button>
+        <button mat-menu-item (click)="openDefaultDialog()">
+            Set Default
+        </button>
+    </mat-menu>
+    <mat-menu #DisplayMenu="matMenu">
+      <button mat-menu-item routerLink="/attendance"> Daily </button>
+      <button mat-menu-item routerLink="/attendance/monthly"> Monthly </button>
+      <button mat-menu-item routerLink="/attendance/chart"> Chart </button>
+    </mat-menu>
+
     <button mat-button (click)="save()">
-        Save
+        <mat-icon>save</mat-icon>
     </button>
 
     <span class="spacer"></span>
@@ -32,7 +42,7 @@
 
 <div class="table-container">
     <mat-card class="table-card">
-        <table mat-table [dataSource]="dataSource" matSort class="attendance-table">
+        <table mat-table [dataSource]="dataSource" class="attendance-table">
 
             <ng-container matColumnDef="date">
                 <th mat-header-cell *matHeaderCellDef> Date </th>

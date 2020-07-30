@@ -2,18 +2,27 @@
     <mat-icon>event_note</mat-icon>
     <h1>Attendance</h1>
 
-    <button mat-button (click)="shift_year(-1)">←</button>
-    <button mat-button (click)="shift_year(1)">→</button>
+    <button mat-button (click)="shift_year(-1)">
+        <mat-icon> arrow_left </mat-icon>
+    </button>
+    <button mat-button (click)="shift_year(1)">
+        <mat-icon> arrow_right </mat-icon>
+    </button>
 
     <div class="borderLine"></div>
 
-    <button mat-button [matMenuTriggerFor]="DisplayMenu"> Display Type </button>
-    <mat-menu #DisplayMenu="matMenu">
-      <button mat-menu-item (click)="click_Daily()"> Daily </button>
-      <button mat-menu-item (click)="click_Monthly()"> Monthly </button>
-      <button mat-menu-item (click)="click_Chart()"> Chart </button>
+    <button mat-button [matMenuTriggerFor]="menu">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu>
+        <button mat-menu-item [matMenuTriggerFor]="DisplayMenu">Display Type</button>
+        <button mat-menu-item [matMenuTriggerFor]="ChartMenu"> Chart Type </button>
     </mat-menu>
-    <button mat-button [matMenuTriggerFor]="ChartMenu"> Chart Type </button>
+    <mat-menu #DisplayMenu="matMenu">
+      <button mat-menu-item routerLink="/attendance"> Daily </button>
+      <button mat-menu-item routerLink="/attendance/monthly"> Monthly </button>
+      <button mat-menu-item routerLink="/attendance/chart"> Chart </button>
+    </mat-menu>
     <mat-menu #ChartMenu="matMenu">
       <button mat-menu-item (click)="changeDisplay('bar')"> Bar </button>
       <button mat-menu-item (click)="changeDisplay('line')"> Line </button>

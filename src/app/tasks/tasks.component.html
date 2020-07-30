@@ -2,20 +2,18 @@
     <mat-icon>format_list_bulleted</mat-icon>
     <h1>Task &nbsp;: &nbsp;{{project_data.name}}</h1>
     <div class="borderLine"></div>
-    <button mat-button class="add-project"
-        (click)="addTask()">
-        Add Task
-    </button>
     <span class="spacer"></span>
     <mat-form-field class="filter">
-        <mat-label>Filter</mat-label>
+        <mat-label>
+            <mat-icon>filter_alt</mat-icon>
+        </mat-label>
         <input matInput (keyup)="applyFilter($event)" #input>
     </mat-form-field>
     <mat-slide-toggle class="slide-toggle"
         color="warn"
         [(ngModel)]="isShowCompleted"
         (change)="showCompletedChanged()">
-        Show Completed
+        View All
     </mat-slide-toggle>
 </mat-toolbar>
 <div class="table-container">
@@ -60,3 +58,7 @@
         </table>
     </mat-card>
 </div>
+<button mat-fab class="add_itme_button" 
+    color="primary" (click)="addTask()">
+    <mat-icon>add</mat-icon>
+</button>

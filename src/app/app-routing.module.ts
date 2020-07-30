@@ -1,3 +1,4 @@
+import { ProjectContentsComponent } from './projects/project-contents/project-contents.component';
 import { HomeComponent } from './home/home.component';
 import { ChartComponent } from './attendance/chart/chart.component';
 import { MonthlyComponent } from './attendance/monthly/monthly.component';
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
     path: 'projects',
     component: ProjectsComponent
+  },
+  {
+    path: 'projects/:no',
+    component: ProjectContentsComponent
   },
   {
     path: 'tasks/:no',

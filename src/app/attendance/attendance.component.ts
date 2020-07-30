@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { AttendanceService } from './../services/attendance.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-attendance',
@@ -21,21 +22,17 @@ export class AttendanceComponent implements OnInit {
   constructor(
     private attendanceService: AttendanceService,
     private dialog: MatDialog,
-    private router: Router
+    private router: Router,
+    private snackbar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
     this.update();
   }
-  save() { }
-  click_Daily() {
-    this.router.navigate(['/attendance']);
-  }
-  click_Monthly() {
-    this.router.navigate(['/attendance/monthly']);
-  }
-  click_Chart() {
-    this.router.navigate(['/attendance/chart']);
+  save() {
+    this.snackbar.open('保存しました', null, {
+      duration: 2000
+    });
   }
 
   update() {

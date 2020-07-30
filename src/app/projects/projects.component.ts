@@ -74,9 +74,6 @@ export class ProjectsComponent implements OnInit {
       }
     });
   }
-  onClickProjectTask(no: number) {
-    this.router.navigate(['/tasks/' + String(no)]);
-  }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();

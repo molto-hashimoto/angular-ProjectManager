@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class ProjectService {
 
-  projectColumns: string[] = ['no', 'name', 'task', 'status', 'operator', 'partner'];
+  projectColumns: string[] = ['no', 'name', 'status', 'operator', 'partner'];
   projectData: Project[] = [
     {no: 4, name: 'DNavi', task: 0, status: 'New', operator: 'hashimoto', partner: 'AAA', note: ''},
     {no: 3, name: 'DP', task: 2, status: 'Working', operator: 'hashimoto', partner: 'BBB', note: ''},

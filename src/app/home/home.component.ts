@@ -31,6 +31,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.now$ = new Observable((observer) => {
+      observer.next(new Date());
       setInterval(() => {
         observer.next(new Date());
       }, 1000);

@@ -30,6 +30,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 import { ChartsModule } from 'ng2-charts';
 import { IgxCalendarModule } from 'igniteui-angular';
@@ -44,7 +45,6 @@ import { DefaultComponent } from './attendance/default/default.component';
 import { MonthlyComponent } from './attendance/monthly/monthly.component';
 import { ChartComponent } from './attendance/chart/chart.component';
 import { HomeComponent } from './home/home.component';
-import { ProjectContentsComponent } from './projects/project-contents/project-contents.component';
 
 @NgModule({
   declarations: [
@@ -58,8 +58,7 @@ import { ProjectContentsComponent } from './projects/project-contents/project-co
     DefaultComponent,
     MonthlyComponent,
     ChartComponent,
-    HomeComponent,
-    ProjectContentsComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -88,6 +87,7 @@ import { ProjectContentsComponent } from './projects/project-contents/project-co
     ChartsModule,
     MatDividerModule,
     MatSnackBarModule,
+    MatExpansionModule,
     IgxCalendarModule
   ],
   entryComponents: [ProjectDetailComponent, TaskDetailComponent, DeleteReconfirmDialogComponent, DefaultComponent],
